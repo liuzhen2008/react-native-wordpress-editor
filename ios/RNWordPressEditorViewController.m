@@ -140,7 +140,7 @@ NSString *const DefaultDesktopEditOnlyBlurBackground = @"none";
     }
   }
   
-  self.titleFocusHidesToolbar = [props[@"titleFocusHidesToolbar"] boolValue];
+  self.titleFocusHidesToolbar = YES;
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
@@ -234,6 +234,10 @@ NSString *const DefaultDesktopEditOnlyBlurBackground = @"none";
     }
   }
   
+  [self.toolbarView setItemTintColor:[UIColor colorWithRed:0.66 green:0.74 blue:0.81 alpha:1.0]];
+  [self.toolbarView setSelectedItemTintColor:[UIColor colorWithRed:0.0 green:0.53 blue:0.75 alpha:1.0]];
+  [self.toolbarView setDisabledItemTintColor:[UIColor colorWithRed:0.78 green:0.84 blue:0.88 alpha:0.5]];
+
   if ([self.props valueForKeyPath:@"toolbarStyle.iconTintColor"])
   {
     [self.toolbarView setItemTintColor:[RCTConvert UIColor:[self.props valueForKeyPath:@"toolbarStyle.iconTintColor"]]];
